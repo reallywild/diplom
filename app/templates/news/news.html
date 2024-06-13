@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+  <div class="card bg-light my-5 p-2">
+    <div class="card-body">
+      <h1 class="card-title text-center fs-1 fw-bold">Новости организации</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  {% for post in news %}
+  <div class="card mb-3">
+    <div class="row g-0 m-0">
+      <div class="col-md-6">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" class="img-fluid rounded-start" alt="{{ post.title }}">
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text" style="word-break: break-all"> 
+              {{ post.description }}
+            </p>   
+            <div class="text-end">
+              <a href="#" class="link-success link-opacity-75-hover">Читать подробнее</a>
+            </div>    
+            <p class="card-text"><small class="text-body-secondary">{{ post.set_time }}</small></p>  
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

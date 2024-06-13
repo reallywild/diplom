@@ -1,0 +1,36 @@
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #BBE3C8;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #19cc55;
+}
+
+.background {
+    padding: 0px;
+    margin: 0px;
+    background-color: #BBE3C8;
+    background-image: url('back_template_4.svg');
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: 100% auto;
+    align-items: center;
+}
+
+.bg-nav {
+    background-color: #5DB364;
+}
+
+.bg-alpha {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+  
+.bg-alpha-1 {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+  

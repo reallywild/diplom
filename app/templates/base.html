@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛСР: {{title}}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container-fluid background px-0">
+
+        <nav class="navbar sticky-top navbar-expand-lg bg-nav border-body" data-bs-theme="dark">
+            <div class="container">
+              <a class="navbar-brand row m-1" href="{% url 'home' %}">
+                <img class="col-5 ps-0 pe-4" width="100" height="100" role="img" aria-label="Bootstrap" src="{% static 'img/logo.png' %}"></img>
+      
+                <ul class="col-5 ">
+                  <li class="list-group-item">Лес</li>
+                  <li class="list-group-item">Строй</li>
+                  <li class="list-group-item">Реконструкция</li>
+                </ul>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                  <li class="nav-item">
+                    <a class="nav-link border-end mx-2 link-light" aria-current="page" href="{% url 'home' %}">Главная</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link border-end mx-2 link-light" href="{% url 'news' %}">Новости</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link border-end mx-2 link-light" href="{% url 'services' %}">Услуги</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link border-end mx-2 link-light" href="{% url 'vacancies' %}">Вакансии</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ms-2 link-light" href="{% url 'contact' %}">Контакты</a>
+                  </li>
+                  
+                </ul>
+                  {% if user.is_authenticated %}
+                  
+                    <a class="nav-link ms-2 link-light" href="">{{user.username}}</a>
+                  
+                  {% endif %}
+              </div>
+            </div>
+        </nav>
+        
+        {% block content %}
+        {% endblock %}
+
+        <div class="container-fluid bg-light">
+            <footer class="py-3 mt-4 ">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Главная</a></li>
+                    <li class="nav-item"><a href="{% url 'news' %}" class="nav-link px-2 text-muted">Новости</a></li>
+                    <li class="nav-item"><a href="{% url 'services' %}" class="nav-link px-2 text-muted">Услуги</a></li>
+                    <li class="nav-item"><a href="{% url 'vacancies' %}" class="nav-link px-2 text-muted">Вакансии</a></li>
+                    <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-muted">Контакты</a></li>
+                </ul>
+                <p class="text-center text-muted">© 2012-2024<br>Общество с ограниченной ответственностью<br>«ЛесСтройРеконструкция»</p>
+            </footer>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

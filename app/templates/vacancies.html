@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card bg-light my-5 p-2">
+      <div class="card-body">
+        <h1 class="card-title text-center fs-1 fw-bold">Вакансии</h1>
+      </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    {% for vacancy in vacancies %}
+    <div class="card mx-auto mb-3">
+        <div class="row">
+          <!-- <div class="col-md-6">
+            <img src="static/post_img/post_1.jpg" class="img-fluid rounded-start" alt="...">
+          </div> -->
+          
+            <div class="col-xl-12 p-4 px-5">
+                <div class="card-body">
+                    <h2 class="card-title text-center pb-3 border-bottom">{{ vacancy.title }}</h2>
+                    <p class="card-text pb-1 fs-5">Описание вакансии:</p>
+                    <p class="card-text" style="word-break: break-all"> 
+                        {{ vacancy.description }}
+                    </p> 
+                    <p class="card-text pb-1 fs-5">Зарплата: {{ vacancy.salary }}</p>
+                    <p class="card-text pb-1 fs-5">Место работы: {{ vacancy.location }}</p>
+                    <p class="card-text"><small class="text-body-secondary">Телефон: +79129392715</small></p>  
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+

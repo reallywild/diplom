@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="card bg-alpha my-5 p-2">
+      <div class="card-body">
+          <h5 class="card-title px-2 py-2 mb-4 fs-1 fw-bold text-center">Регистрация</h5>
+          <div class="row">
+              <div class="col-xl-2"></div>
+              <div class="col-xl-8 mb-3">
+                  {% if user.is_authenticated %}
+                    <p class="text-center fs-2">Вы зарегистрированы! Хотите <a href="{% url 'logout' %}">Выйти?</a></p>
+                  {% else %}
+                  <form class="" method="post">
+                    {% csrf_token %}
+                      <div class="mb-3">
+                          <label for="id_full_name" class="form-label">Введите ваше имя:</label>
+                          <input type="text" name="full_name" class="form-control" placeholder="Иванов Иван Иванович" maxlength="254" required="" id="id_full_name">
+                      </div>
+                      <div class="mb-3">
+                        <label for="id_username" class="form-label">Введите ваше имя:</label>
+                        <input type="text" name="username" class="form-control" placeholder="ivan123" maxlength="254" required="" id="id_username">
+                      </div>
+                      <div class="mb-3">
+                          <label for="id_email" class="form-label">Введите вашу электронную почту</label>
+                          <input type="email" name="email" class="form-control" placeholder="email@example.com" maxlength="254" required="" id="id_email">
+                      </div>
+                      <div class="mb-3">
+                          <label for="id_password" class="form-label">Придумайте пароль</label>
+                          <input type="password" name="password" class="form-control" placeholder="******" maxlength="254" minlength="6" required="" id="id_password">
+                      </div>
+                      <div class="mb-4 form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                          <label class="form-check-label form-text" for="exampleCheck1">Заполняя форму, я принимаю условия Пользовательского соглашения, Политики конфиденциальности и даю согласие на Обработку персональных данных.</label>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-4"></div>
+                          <button type="submit" class="btn btn-light border col-md-4">Зарегистрироваться</button>
+                          <div class="col-md-4"></div>
+                      </div>    
+                  </form>
+                  {% endif %}
+              </div>
+              <div class="col-xl-2"></div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="card bg-alpha" style="margin-top: 8%; margin-bottom: 8%;">
+      <div class="card-body">
+          <h5 class="card-title px-2 py-2 mb-4 fs-1 fw-bold text-center">Авторизация</h5>
+          <div class="row">
+              <div class="col-xl-2"></div>
+              <div class="col-xl-8 mb-3">
+                {% if user.is_authenticated %}
+                  <p class="text-center fs-2">Вы авторизированы! Хотите <a href="{% url 'logout' %}">Выйти?</a></p>
+                {% else %}
+                  <form class="" method="post">
+                    {% csrf_token %}
+                      <div class="mb-3">
+                        <label for="id_username" class="form-label">Введите ваш логин:</label>
+                        <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="254" required="" id="id_username">
+                        {% if form.username.errors %}
+                          <div class="alert alert-danger" role="alert">
+                            {{ form.username.errors.as_text }}
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="mb-5">
+                        <label for="id_password" class="form-label">Введите пароль:</label>
+                        <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
+                        {% if form.password.errors %}
+                          <div class="alert alert-danger" role="alert">
+                            {{ form.password.errors.as_text }}
+                          </div>
+                        {% endif %}
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-4"></div>
+                          <button type="submit" class="btn btn-light border col-sm-4">Войти</button>
+                          <div class="col-sm-4"></div>
+                          {% if form.non_field_errors %}
+                            <div class="alert alert-danger" role="alert">
+                              {{ form.non_field_errors.as_text }}
+                            </div>
+                          {% endif %}
+                          <p class="text-muted text-center pt-4">Не зарегистрированы? <a href="{% url 'registration' %}">Зарегистрироваться</a></p>
+                      </div>    
+                  </form>
+                {% endif %}
+              </div>
+              <div class="col-xl-2"></div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

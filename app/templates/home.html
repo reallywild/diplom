@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="card bg-alpha my-5 p-2 ">
+            <div class="card-body row">
+                
+                <div class="col-xl-1"></div>
+                <div class="col-xl-10 mb-4 px-2" style="word-break: break-all">
+                    <h5 class="card-title  mb-4 fs-1 fw-bold">О компании</h5>
+                    <p class="card-text text-wrap">
+                        За истекший период с 2000 года выполнялись подготовительные работы по строительству кустовых площадок, подъездных автодорог, автозимников, подготовительные работы к буре-нию скважин при обустройстве месторождений газовых и нефтяных компаний: ООО «Газпром трансгаз Томск», ОАО «ТНК-ВР», ОАО НК «РуссНефть», ОАО НК «РосНефть», ОАО «СлавНефть», АК «Транснефть». На всех объектах было обеспечено необходимое качество работ и соблюде-ние договорных обязательств.
+                    </p>
+                    <p class="card-text text-wrap">
+                        Успешность выполненных работ на предприятии достигнута за счет высококвалифициро-ванных рабочих, инженерного и экономического блока специалистов, а также наличия собственной производственной базы, собственного парка автотранспорта и строительной техники, оснащения современным технологическим оборудованием, оснащенности бригад, отработкой результативных схем производства, достижением оперативности в решении производственных задач.
+                    </p>
+                    <p class="card-text text-wrap">
+                        Для выполнения указанных работ предприятие имеет собственную производственную базу площадью 4 га, расположенную по адресу: г.Нижневартовск, район подстанции «Мегион», всю необходимую автомобильную, тракторную, погрузо-разгрузочную, валочную и другую вспомогательную технику.
+                    </p>
+                </div>
+                <div class="col-xl-1"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/1_slide.png' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/2_slide.png' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/3_slide.png' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden"></span>
+            </button>
+        </div>   
+    </div>
+
+    <div class="container">
+        <div class="card bg-alpha my-5 p-2 ">
+            <div class="card-body">
+                <h5 class="card-title px-2 fs-1 fw-bold">Производственные мощности</h5>
+                <div class="my-4 px-3" style="word-break: break-all">
+                    <table class="container-fluid table-light table-bordered">
+                        <tr>
+                        <td class="p-3">Собственная производственная база площадью 4,0 га</td>
+                        <td class="p-3">Собственный автозаправочный комплекс</td>
+                        </tr>
+                        <tr>
+                        <td class="p-3">3 корпуса ремонтно-механических мастерских</td>
+                        <td class="p-3">Гидронамывной карьер песка в районе Самотлорского месторождения нефти</td>
+                        </tr>
+                        <tr>
+                        <td class="p-3">Деревообрабатывающий цех и пилорама</td>
+                        <td class="p-3">Гидронамывной карьер песка в черте города Нижневартовск</td>
+                        </tr>
+                        <tr>
+                        <td class="p-3">Котельная</td>
+                        <td class="p-3">Сухоройные карьеры в Томской области с объемом грунта 500 000 куб. метров</td>
+                        </tr>
+                        <tr>
+                        <td class="p-3">Арочный склад</td>
+                        <td class="p-3">Арендованные лесные участки для заготовки древесины в Томской и Тюменской областях</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
